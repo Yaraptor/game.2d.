@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt0udbh05he1h"]
+
+[ext_resource type="Script" path="res://scripts/movement.gd" id="1_5c63g"]
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(417, 231)
+safe_margin = 0.005
+script = ExtResource("1_5c63g")
+speed = null
