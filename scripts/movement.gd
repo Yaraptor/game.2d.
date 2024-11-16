@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 @export var speed = 200
 @onready var ray = $RayCast2D
 
@@ -10,7 +11,7 @@ const JUMP_FORCE = -400
 var jumps = 0
 
 func get_input():
-	var input_direction = Input.get_vector("left", "right", "up", "down")
+	var _input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = Input.get_vector("left", "right", "up", "down") * speed
 	velocity.y += gravity * speed
 	
@@ -31,14 +32,22 @@ func _physics_process(delta):
 	velocity.x = input_vector.x * MOVE_SPEED
 	
 
-	if is_on_floor and Input.is_action_just_pressed("jump"):
-		if jump > 0:
-                        velocity.y = JUMP_FORCE
-                        jump -= 1
+	if Input.is_action_just_pressed("jump"):
+		if jumps > 0: 
+			velocity.y = JUMP_FORCE 
+			jumps -=1 
 	move_and_slide()
 	#if Input.is_action_pressed("left")
 	
-
+	if Input.is_action_pressed("right"):
+		$AnimatedSprite.play("WalkR")
+		
+	if Input.is_action_pressed("left"):
+		$AnimatedSprite.play("WalkL")
+	if Input.is_action_just_released("left"):
+		$AnimatedSprite.play("NoWalk")
+	if Input.is_action_just_released("right"):
+		$AnimatedSprite.play("NoWalk")
 
 
 	

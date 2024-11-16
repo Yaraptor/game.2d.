@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bt0udbh05he1h" path="res://animations/character_body_2d.tscn" id="1_xevnj"]
 [ext_resource type="Texture2D" uid="uid://b8grmhyvu2ve7" path="res://sprites/walk.png" id="2_3gcwb"]
+[ext_resource type="Texture2D" uid="uid://dr5c0xsnawrvm" path="res://sprites/Main/Tiles/Tile-10.png" id="3_8p20o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vv45t"]
 atlas = ExtResource("2_3gcwb")
@@ -171,10 +172,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecxsm"]
 size = Vector2(31, 49)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_t2qjq"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wpwx"]
-size = Vector2(290, 113)
+size = Vector2(7027.21, 2846.12)
 
 [node name="Node2D" type="Node2D"]
 
@@ -184,13 +183,14 @@ speed = 200
 
 [node name="RayCast2D" type="RayCast2D" parent="player"]
 position = Vector2(0, -1.5)
-target_position = Vector2(0, 37.5)
+target_position = Vector2(0, 35.5)
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="player"]
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="player"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_k3hfi")
-animation = &"NoWalk"
+animation = &"WalkL"
 autoplay = "NoWalk"
+frame_progress = 0.674785
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="player"]
 position = Vector2(0, 5.5)
@@ -200,12 +200,12 @@ shape = SubResource("RectangleShape2D_ecxsm")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
 position = Vector2(416, 336)
-scale = Vector2(288, 116.5)
-texture = SubResource("CanvasTexture_t2qjq")
+scale = Vector2(2.5, 1.013)
+texture = ExtResource("3_8p20o")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground/Sprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Sprite2D/StaticBody2D"]
-position = Vector2(-0.00347221, -0.00429201)
+position = Vector2(0.199997, -0.369141)
 scale = Vector2(0.00347222, 0.00858369)
 shape = SubResource("RectangleShape2D_4wpwx")
