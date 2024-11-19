@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Learing 2d"
+config/name="I hate niggers"
 run/main_scene="res://Game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/show_image=false
