@@ -35,7 +35,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump"):
 		if jumps > 0: 
 			velocity.y = JUMP_FORCE 
-			jumps -=1 
+			jumps -= 1 
 	move_and_slide()
 	#if Input.is_action_pressed("left")
 	

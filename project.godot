@@ -10,11 +10,11 @@ config_version=5
 
 [application]
 
-config/name="I hate niggers"
+config/name="Learing 2d"
 run/main_scene="res://Game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/show_image=false
-config/icon="res://sprites/walk.png"
+config/icon="res://icon.svg"
 
 [input]
 

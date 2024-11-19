@@ -1,8 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://bl7cqu1pobt62"]
+[gd_scene load_steps=29 format=3 uid="uid://bl7cqu1pobt62"]
 
 [ext_resource type="PackedScene" uid="uid://bt0udbh05he1h" path="res://animations/character_body_2d.tscn" id="1_xevnj"]
 [ext_resource type="Texture2D" uid="uid://b8grmhyvu2ve7" path="res://sprites/walk.png" id="2_3gcwb"]
-[ext_resource type="Texture2D" uid="uid://dr5c0xsnawrvm" path="res://sprites/Main/Tiles/Tile-10.png" id="3_8p20o"]
+[ext_resource type="Texture2D" uid="uid://dr5c0xsnawrvm" path="res://sprites/Tile-10.png" id="3_8p20o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vv45t"]
 atlas = ExtResource("2_3gcwb")
@@ -175,6 +175,9 @@ size = Vector2(31, 49)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wpwx"]
 size = Vector2(7027.21, 2846.12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1djo"]
+size = Vector2(2961, 53)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_xevnj")]
@@ -209,3 +212,11 @@ texture = ExtResource("3_8p20o")
 position = Vector2(0.199997, -0.369141)
 scale = Vector2(0.00347222, 0.00858369)
 shape = SubResource("RectangleShape2D_4wpwx")
+
+[node name="death lol" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="death lol"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death lol/StaticBody2D"]
+position = Vector2(829.5, 500)
+shape = SubResource("RectangleShape2D_o1djo")
