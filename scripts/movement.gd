@@ -4,8 +4,7 @@ extends CharacterBody2D
 @export var speed = 200
 @onready var ray = $RayCast2D
 
-var gravity = 1
-const GRAVITY = 800
+var gravity = 800
 const MOVE_SPEED = 200
 const JUMP_FORCE = -400
 var jumps = 0
@@ -24,7 +23,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("left"):
 		input_vector.x -= 1
 
-	velocity.y += GRAVITY * delta
+	velocity.y += gravity * delta
 
 	if ray.is_colliding():
 		jumps = 2
@@ -36,18 +35,23 @@ func _physics_process(delta):
 		if jumps > 0: 
 			velocity.y = JUMP_FORCE 
 			jumps -= 1 
+	if jumps == 1:
+		gravity = 1200
+	else:
+		gravity = 800 
+		
+	print(jumps)
 	move_and_slide()
 	#if Input.is_action_pressed("left")
 	
-	if Input.is_action_pressed("right"):
-		$AnimatedSprite.play("WalkR")
-		
-	if Input.is_action_pressed("left"):
-		$AnimatedSprite.play("WalkL")
-	if Input.is_action_just_released("left"):
-		$AnimatedSprite.play("NoWalk")
-	if Input.is_action_just_released("right"):
-		$AnimatedSprite.play("NoWalk")
+	if Input.is_action_pressed("left") and Input.is_action_pressed("right"):
+		$"Player Sprite".play("NoWalk")
+	elif Input.is_action_pressed("right"):
+		$"Player Sprite".play("WalkR")
+	elif Input.is_action_pressed("left"):
+		$"Player Sprite".play("WalkL")
+	elif Input.is_action_pressed("left") == false and Input.is_action_pressed("right") == false:
+		$"Player Sprite".play("NoWalk")
 
 
 	
