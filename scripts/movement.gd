@@ -40,7 +40,7 @@ func _physics_process(delta):
 	else:
 		gravity = 800 
 		
-	print(jumps)
+	
 	move_and_slide()
 	#if Input.is_action_pressed("left")
 	
